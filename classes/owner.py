@@ -12,12 +12,12 @@ class Owner:
         self.state = state
 
     def __repr__(self):
-        return f"""\n{self.owner_ID}, {self.first_name}, {self.last_name}\n"""
+        return self.owner_ID, self.first_name, self.last_name
     
     def get_full_name(self):
         return f"{self.first_name} {self.last_name}"
 
-    
+
 
     @classmethod
     def all_owners(cls):
@@ -27,7 +27,7 @@ class Owner:
             owner_reader = csv.DictReader(owner_files)
             owner_arr = []
             for owner in owner_reader:
-                owner_arr.append(Owner(**dict(owner)))
+                owner_arr.append(owner)
             return owner_arr
 
 print(Owner.all_owners())
